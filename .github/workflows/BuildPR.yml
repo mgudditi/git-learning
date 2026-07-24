@@ -1,1 +1,17 @@
 
+name: Print on Branch Merge to Main
+
+on:
+  push:
+    branches:
+      - main   # Trigger only when code is pushed/merged into main
+
+jobs:
+  print-message:
+    runs-on: windows-latest   # Windows x64 environment
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Print statement
+        run: echo "A branch has been merged into main on Windows!"
